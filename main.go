@@ -16,7 +16,7 @@ func main() {
 
 	response, err := http.Get("https://httpbin.org/ip")
 	if err != nil {
-		log.Infof("The HTTP request failed with error %s\n", err)
+		log.Infof("The HTTP Request failed with error %s\n", err)
 	} else {
 		data, _ := ioutil.ReadAll(response.Body)
 		log.Infof(string(data))

@@ -13,6 +13,7 @@ COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build
 
-FROM scratch
+FROM alpine
 COPY --from=builder /app/my-first-cli /app/
+RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
 ENTRYPOINT ["/app/my-first-cli"]
